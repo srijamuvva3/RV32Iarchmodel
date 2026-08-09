@@ -1,8 +1,9 @@
-#pragma once
+#ifndef INSTRUCTION_H //used to include the header file only once per translation unit - .cpp file
+#define INSTRUCTION_H
 
 #include <cstdint>
 
-enum class InstructionFormat{
+enum class InstructionFormat{ //Instruction types in RISC-V architecture
     R,
     I,
     S,
@@ -25,3 +26,5 @@ struct Instruction
     uint32_t funct7;
     int32_t immediate;
 };
+
+#endif

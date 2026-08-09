@@ -10,6 +10,7 @@ class PC{
         PC();
         uint32_t read() const;
         void write(uint32_t new_value);
+        void reset();
 };
 
 #endif

@@ -13,7 +13,8 @@ enum class ALUoperation {
     XOR,
     SLL,
     SRL,
-    SRA
+    SRA,
+    NONE
 };
 
 class ALU {

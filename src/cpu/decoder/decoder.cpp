@@ -1,13 +1,9 @@
 #include "decoder.h"
 
-int32_t Decoder::decodeImmediate(
-    uint32_t raw,
-    InstructionFormat format) const
-{
+int32_t Decoder::decodeImmediate(uint32_t raw, InstructionFormat format) const{
     switch (format)
     {
-        case InstructionFormat::I:
-        {
+        case InstructionFormat::I: {
             int32_t immediate = (raw >> 20) & 0xFFF;
 
             // Sign extend 12-bit immediate
@@ -19,8 +15,7 @@ int32_t Decoder::decodeImmediate(
             return immediate;
         }
 
-        case InstructionFormat::S:
-        {
+        case InstructionFormat::S: {
             int32_t imm11_5 = (raw >> 25) & 0x7F;
             int32_t imm4_0  = (raw >> 7) & 0x1F;
 
@@ -35,8 +30,7 @@ int32_t Decoder::decodeImmediate(
             return immediate;
         }
 
-        case InstructionFormat::B:
-        {
+        case InstructionFormat::B: {
             int32_t imm12   = (raw >> 31) & 0x1;
             int32_t imm11   = (raw >> 7) & 0x1;
             int32_t imm10_5 = (raw >> 25) & 0x3F;
@@ -48,21 +42,18 @@ int32_t Decoder::decodeImmediate(
                 (imm10_5 << 5) |
                 (imm4_1 << 1);
 
-            if (immediate & 0x1000)
-            {
+            if (immediate & 0x1000){
                 immediate |= 0xFFFFE000;
             }
 
             return immediate;
         }
 
-        case InstructionFormat::U:
-        {
+        case InstructionFormat::U:  {
             return static_cast<int32_t>(raw & 0xFFFFF000);
         }
 
-        case InstructionFormat::J:
-        {
+        case InstructionFormat::J: {
             int32_t imm20    = (raw >> 31) & 0x1;
             int32_t imm10_1  = (raw >> 21) & 0x3FF;
             int32_t imm11    = (raw >> 20) & 0x1;

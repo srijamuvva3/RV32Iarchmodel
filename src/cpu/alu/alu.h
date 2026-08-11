@@ -14,6 +14,7 @@ enum class ALUoperation {
     SLL,
     SRL,
     SRA,
+    SLT,
     NONE
 };
 

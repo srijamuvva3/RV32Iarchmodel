@@ -1,17 +1,12 @@
-#include "control.h"
+#include "control_unit.h"
 
-#include "../common/instruction.h"
-#include "../common/control_signals.h"
 ControlSignals ControlUnit::generate(
     const Instruction& instruction) const
 {
     ControlSignals signals;
 
-    switch (instruction.opcode)
-    {
-        // R-type: ADD, SUB, AND, OR, XOR, SLT, SLL, SRL, SRA
-        case 0x33:
-        {
+    switch (instruction.opcode){
+        case 0x33:{ //R-type: opcode is 0110011 ->0x33
             signals.reg_write = true;
             signals.alu_source = ALUSource::REGISTER;
 
@@ -19,43 +14,42 @@ ControlSignals ControlUnit::generate(
             {
                 case 0x0:
                     if (instruction.funct7 == 0x00)
-                        signals.alu_operation = ALUOperation::ADD;
+                        signals.alu_operation = ALUoperation::ADD;
                     else if (instruction.funct7 == 0x20)
-                        signals.alu_operation = ALUOperation::SUB;
+                        signals.alu_operation = ALUoperation::SUB;
                     break;
 
                 case 0x7:
-                    signals.alu_operation = ALUOperation::AND;
+                    signals.alu_operation = ALUoperation::AND;
                     break;
 
                 case 0x6:
-                    signals.alu_operation = ALUOperation::OR;
+                    signals.alu_operation = ALUoperation::OR;
                     break;
 
                 case 0x4:
-                    signals.alu_operation = ALUOperation::XOR;
+                    signals.alu_operation = ALUoperation::XOR;
                     break;
 
                 case 0x2:
-                    signals.alu_operation = ALUOperation::SLT;
+                    signals.alu_operation = ALUoperation::SLT;
                     break;
 
                 case 0x1:
-                    signals.alu_operation = ALUOperation::SLL;
+                    signals.alu_operation = ALUoperation::SLL;
                     break;
 
                 case 0x5:
                     if (instruction.funct7 == 0x00)
-                        signals.alu_operation = ALUOperation::SRL;
+                        signals.alu_operation = ALUoperation::SRL;
                     else if (instruction.funct7 == 0x20)
-                        signals.alu_operation = ALUOperation::SRA;
+                        signals.alu_operation = ALUoperation::SRA;
                     break;
             }
 
             break;
         }
 
-        // I-type arithmetic: ADDI, ANDI, ORI, XORI, SLTI, ...
         case 0x13:
         {
             signals.reg_write = true;
@@ -64,101 +58,73 @@ ControlSignals ControlUnit::generate(
             switch (instruction.funct3)
             {
                 case 0x0:
-                    signals.alu_operation = ALUOperation::ADD;
+                    signals.alu_operation = ALUoperation::ADD;
                     break;
 
                 case 0x7:
-                    signals.alu_operation = ALUOperation::AND;
+                    signals.alu_operation = ALUoperation::AND;
                     break;
 
                 case 0x6:
-                    signals.alu_operation = ALUOperation::OR;
+                    signals.alu_operation = ALUoperation::OR;
                     break;
 
                 case 0x4:
-                    signals.alu_operation = ALUOperation::XOR;
+                    signals.alu_operation = ALUoperation::XOR;
                     break;
 
                 case 0x2:
-                    signals.alu_operation = ALUOperation::SLT;
-                    break;
-
-                case 0x1:
-                    signals.alu_operation = ALUOperation::SLL;
-                    break;
-
-                case 0x5:
-                    if (instruction.funct7 == 0x00)
-                        signals.alu_operation = ALUOperation::SRL;
-                    else if (instruction.funct7 == 0x20)
-                        signals.alu_operation = ALUOperation::SRA;
+                    signals.alu_operation = ALUoperation::SLT;
                     break;
             }
 
             break;
         }
 
-        // LW
-        case 0x03:
+        case 0x03:  // LW
         {
             signals.reg_write = true;
             signals.alu_source = ALUSource::IMMEDIATE;
-            signals.alu_operation = ALUOperation::ADD;
-
+            signals.alu_operation = ALUoperation::ADD;
             signals.mem_read = true;
             signals.mem_to_reg = true;
-
             break;
         }
 
-        // SW
-        case 0x23:
+        case 0x23:  // SW
         {
             signals.alu_source = ALUSource::IMMEDIATE;
-            signals.alu_operation = ALUOperation::ADD;
-
+            signals.alu_operation = ALUoperation::ADD;
             signals.mem_write = true;
-
             break;
         }
 
-        // Branch instructions: BEQ, BNE, BLT, ...
-        case 0x63:
+        case 0x63:  // Branch
         {
             signals.branch = true;
             signals.alu_source = ALUSource::REGISTER;
-            signals.alu_operation = ALUOperation::SUB;
-
+            signals.alu_operation = ALUoperation::SUB;
             break;
         }
 
-        // JAL
-        case 0x6F:
+        case 0x6F:  // JAL
         {
             signals.jump = true;
             signals.reg_write = true;
-
             break;
         }
 
-        // JALR
-        case 0x67:
+        case 0x67:  // JALR
         {
             signals.jump = true;
             signals.reg_write = true;
-
             signals.alu_source = ALUSource::IMMEDIATE;
-            signals.alu_operation = ALUOperation::ADD;
-
+            signals.alu_operation = ALUoperation::ADD;
             break;
         }
 
         default:
-        {
-            // Unsupported instruction.
-            // Default signals remain false/NONE.
             break;
-        }
     }
 
     return signals;

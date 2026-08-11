@@ -8,8 +8,8 @@ class PC{
         uint32_t value;
     public:
         PC();
-        uint32_t read() const;
-        void write(uint32_t new_value);
+        uint32_t get() const;
+        void set(uint32_t new_value);
         void reset();
 };
 

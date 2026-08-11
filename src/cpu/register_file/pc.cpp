@@ -5,12 +5,12 @@ PC::PC()
     reset();
 }
 
-uint32_t PC::read() const
+uint32_t PC::get() const
 {
     return value;
 }
 
-void PC::write(uint32_t new_value)
+void PC::set(uint32_t new_value)
 {
     value = new_value;
 }

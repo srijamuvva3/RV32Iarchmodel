@@ -26,6 +26,8 @@ uint32_t ALU::execute(uint32_t a, uint32_t b, ALUoperation operation) const{
             return a >> b;
         case ALUoperation::SRA:
             return static_cast<int32_t>(a) >> b;
+        case ALUoperation::SLT:
+            return (static_cast<int32_t>(a) < static_cast<int32_t>(b)) ? 1 : 0;
         default:
             throw std::invalid_argument("Invalid ALU operation");
     }

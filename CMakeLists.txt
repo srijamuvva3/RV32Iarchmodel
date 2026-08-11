@@ -13,8 +13,8 @@ add_executable(riscv_cpu
     src/cpu/control_unit/control_unit.cpp
     src/cpu/decoder/decoder.cpp
     src/cpu/alu/alu.cpp
-    src/cpu/registers/register_file.cpp
-    src/cpu/registers/pc.cpp
+    src/cpu/register_file/register_file.cpp
+    src/cpu/register_file/pc.cpp
 
     src/memory/memory.cpp
 )
@@ -27,8 +27,8 @@ add_executable(test_arithmetic
     src/cpu/control_unit/control_unit.cpp
     src/cpu/decoder/decoder.cpp
     src/cpu/alu/alu.cpp
-    src/cpu/registers/register_file.cpp
-    src/cpu/registers/pc.cpp
+    src/cpu/register_file/register_file.cpp
+    src/cpu/register_file/pc.cpp
 
     src/memory/memory.cpp
 )

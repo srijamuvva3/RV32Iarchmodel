@@ -4,7 +4,7 @@
 #include "../src/cpu/cpu.h"
 #include "../src/memory/memory.h"
 
-void testArithmetic()
+int main()
 {
     Memory memory;
     CPU cpu(memory);
@@ -20,13 +20,17 @@ void testArithmetic()
     // ADD x3, x1, x2
     memory.write32(0x08, 0x002081B3);
 
+    // Execute the three instructions
     cpu.step();
     cpu.step();
     cpu.step();
 
+    // Check results
     assert(cpu.getRegister(1) == 10);
     assert(cpu.getRegister(2) == 20);
     assert(cpu.getRegister(3) == 30);
 
-    std::cout << "Arithmetic test PASSED\n";
+    std::cout << "Arithmetic test PASSED!" << std::endl;
+
+    return 0;
 }

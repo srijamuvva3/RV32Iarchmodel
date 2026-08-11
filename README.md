@@ -10,14 +10,14 @@ RISC-V Assembly / Machine Code -> Instruction Memory -> Fetch Instruction -> Dec
 **Instruction Types:** R-type: reg-reg (add, sub,..) I-type: Short immediate constants and loads (addi, lw) S-type: Store to memory (sw) B-type: Conditional branch (sometimes called SB-type) U-type: Upper immediate(e.g., lui, auipc) J-type: Unconditional jump (jal)\
         Bit field Layout: <img width="942" height="327" alt="image" src="https://github.com/user-attachments/assets/8cf8390f-9ba6-4e99-a4b0-b1433388b627" />
 ** Opcode vs Type: **
-|Opcode| Binary  | Instruction group |
-
-| 0x33 | 0110011 | R-type            |
-| 0x13 | 0010011 | I-type arithmetic |
-| 0x03 | 0000011 | Loads             |
-| 0x23 | 0100011 | Stores            |
-| 0x63 | 1100011 | Branches          |
-| 0x6F | 1101111 | JAL               |
-| 0x67 | 1100111 | JALR              |
+|Opcode| Binary  | Instruction group |\
+\
+| 0x33 | 0110011 | R-type            |\
+| 0x13 | 0010011 | I-type arithmetic |\
+| 0x03 | 0000011 | Loads             |\
+| 0x23 | 0100011 | Stores            |\
+| 0x63 | 1100011 | Branches          |\
+| 0x6F | 1101111 | JAL               |\
+| 0x67 | 1100111 | JALR              |\
 
 

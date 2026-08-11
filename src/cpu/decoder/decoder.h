@@ -1,7 +1,8 @@
-#pragma once
+#ifndef DECODER_H
+#define DECODER_H
 
 #include <cstdint>
-#include "instruction.h"
+#include "../common/instruction.h"
 
 class Decoder {
 public:
@@ -10,3 +11,5 @@ public:
 private:
     int32_t decodeImmediate(uint32_t instruction, InstructionFormat format) const;
 };
+
+#endif

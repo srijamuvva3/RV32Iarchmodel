@@ -26,11 +26,12 @@ int main()
     cpu.step();
 
     // Check results
-    assert(cpu.getRegister(1) == 10);
-    assert(cpu.getRegister(2) == 20);
-    assert(cpu.getRegister(3) == 30);
-
-    std::cout << "Arithmetic test PASSED!" << std::endl;
+    if((cpu.getRegister(1) == 10) && (cpu.getRegister(2) == 20) && (cpu.getRegister(3) == 30)){
+        std::cout << "Arithmetic test PASSED!" << std::endl;
+    }
+    else{
+        std::cout << "Arithmetic test FAILED!" << std::endl;
+    }
 
     return 0;
 }

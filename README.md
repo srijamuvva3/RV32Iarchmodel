@@ -37,7 +37,7 @@ add_executable(test_arithmetic \
 
     src/memory/memory.cpp\
 )\
-\
+
 2. Make sure test_arithmetic.cpp has main()
 3. mkdir build && cd build && cmake ..
 4. cmake --build . --config Debug

@@ -33,7 +33,7 @@ add_executable(test_arithmetic \
     src/cpu/decoder/decoder.cpp\
     src/cpu/alu/alu.cpp\
     src/cpu/registers/register_file.cpp\
-    src/cpu/registers/pc.cpp\
+    src/cpu/registers/pc.cpp
 
     src/memory/memory.cpp\
 )\

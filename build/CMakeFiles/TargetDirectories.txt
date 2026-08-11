@@ -1,0 +1,4 @@
+C:/Users/muvva/RV32Iarchmodel/build/CMakeFiles/riscv_cpu.dir
+C:/Users/muvva/RV32Iarchmodel/build/CMakeFiles/test_arithmetic.dir
+C:/Users/muvva/RV32Iarchmodel/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/muvva/RV32Iarchmodel/build/CMakeFiles/ZERO_CHECK.dir

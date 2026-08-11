@@ -1,0 +1,8 @@
+C:\Users\muvva\RV32Iarchmodel\tests\test_arithmetic.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\test_arithmetic.obj
+C:\Users\muvva\RV32Iarchmodel\src\cpu\cpu.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\cpu.obj
+C:\Users\muvva\RV32Iarchmodel\src\cpu\control_unit\control_unit.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\control_unit.obj
+C:\Users\muvva\RV32Iarchmodel\src\cpu\decoder\decoder.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\decoder.obj
+C:\Users\muvva\RV32Iarchmodel\src\cpu\alu\alu.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\alu.obj
+C:\Users\muvva\RV32Iarchmodel\src\cpu\register_file\register_file.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\register_file.obj
+C:\Users\muvva\RV32Iarchmodel\src\cpu\register_file\pc.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\pc.obj
+C:\Users\muvva\RV32Iarchmodel\src\memory\memory.cpp;C:\Users\muvva\RV32Iarchmodel\build\test_arithmetic.dir\Debug\memory.obj

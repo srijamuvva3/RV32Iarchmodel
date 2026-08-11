@@ -20,7 +20,7 @@ RISC-V Assembly / Machine Code -> Instruction Memory -> Fetch Instruction -> Dec
 | 0x67 | 1100111 | JALR              |
 
 # Block diagram with all the signals
-![Block_diagram](image-1.png)
+![alt text](image-1.png)
 
 # Steps to run the test on this functional model
 

@@ -1,5 +1,5 @@
 # RV32Iarchmodel
-RV32I architecture model building from scratch, it has baseline 32-bit integer configuration of RISC-V containing 40 basic integer instructions and 32 32 bit GPRs
+RV32I architecture model building from scratch to check functionality, it has baseline 32-bit integer configuration of RISC-V containing 40 basic integer instructions and 32 32 bit GPRs
 # Simulation path 
 RISC-V Assembly / Machine Code -> Instruction Memory -> Fetch Instruction -> Decode -> Execute -> Register File / Memory -> Update PC -> Repeat \
 ![Simulation_model](image.png)
@@ -21,3 +21,25 @@ RISC-V Assembly / Machine Code -> Instruction Memory -> Fetch Instruction -> Dec
 
 # Block diagram with all the signals
 ![Block_diagram](image-1.png)
+
+# Steps to run the test on this functional model
+
+1. Add the test file to CMakeLists.txt to get the executable [ Example below]
+add_executable(test_arithmetic \
+    tests/test_arithmetic.cpp  \
+\
+    src/cpu/cpu.cpp\
+    src/cpu/control_unit/control_unit.cpp\
+    src/cpu/decoder/decoder.cpp\
+    src/cpu/alu/alu.cpp\
+    src/cpu/registers/register_file.cpp\
+    src/cpu/registers/pc.cpp\
+
+    src/memory/memory.cpp\
+)\
+\
+2. Make sure test_arithmetic.cpp has main()
+3. mkdir build && cd build && cmake ..
+4. cmake --build . --config Debug
+5. .\Debug\test_arithmetic.exe 
+
